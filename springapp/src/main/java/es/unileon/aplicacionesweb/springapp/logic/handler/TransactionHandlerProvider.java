@@ -1,9 +1,12 @@
 package es.unileon.aplicacionesweb.springapp.logic.handler;
 
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+*
+* @author roobre
+*/
 public final class TransactionHandlerProvider {
 
     private static final SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");

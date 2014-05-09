@@ -5,34 +5,46 @@ import java.util.Date;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.validator.constraints.NotBlank;
-
-import es.unileon.aplicacionesweb.springapp.logic.account.DetailedInformation;
-import es.unileon.aplicacionesweb.springapp.logic.handler.TransactionType;
 
 public class NewTransaction {
 
     /** Logger for this class and subclasses */
     protected final Log logger = LogFactory.getLog(getClass());
     
-    @Min(-100)
-    @Max(5000)
-    @NotNull
+    @Min(value = 0, message = "No puede haber transacciones negativas")
+    @Max(value = 5000, message = "El valor máximo para una transacción es de 5000")
+    @NotNull(message = "Debe introducir una cantidad válida.")
     private double amount;
-    @NotNull
+    @NotNull(message = "Debe introducir una fecha (dd/mm/aaaa).")
 	private Date date;
-    @NotNull
+    @NotNull(message = "Debe introducir una fecha (dd/mm/aaaa).")
     private Date effectiveDate;
-    @NotBlank
+    @NotBlank(message = "Debe introducir el concepto de la transacción.")
     private String subject;
-    @NotNull
-    private DetailedInformation extraInformation;
+    @NotBlank(message = "Debe introducir una descripción.")
+    private String extraInformation;
+	@NotBlank(message = "Debe elegir una tipo de transacción.")
+	@javax.validation.constraints.Pattern(regexp = "CHARGE|PAYMENT|PAYROLL|SALARY|IN|OUT|")
+    private String transactionType;
+    
 
-    public double getAmount() {
+    public String getTransactionType() {
+		return transactionType;
+	}
+    public String getExtraInformation() {
+		return extraInformation;
+	}
+	public void setTransactionType(String transactionType) {
+		this.transactionType = transactionType;
+	}
+	public void setExtraInformation(String extraInformation) {
+		this.extraInformation = extraInformation;
+	}
+	public double getAmount() {
 		return amount;
 	}
 	public void setAmount(double amount) {
@@ -55,14 +67,5 @@ public class NewTransaction {
 	}
 	public void setSubject(String subject) {
 		this.subject = subject;
-	}
-	public DetailedInformation getExtraInformation() {
-		return extraInformation;
-	}
-	public void setExtraInformation(DetailedInformation extraInformation) {
-		this.extraInformation = extraInformation;
-	}
-	public Log getLogger() {
-		return logger;
 	}
 }

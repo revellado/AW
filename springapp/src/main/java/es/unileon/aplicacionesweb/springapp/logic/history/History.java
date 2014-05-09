@@ -7,11 +7,27 @@ import java.util.Iterator;
 import es.unileon.aplicacionesweb.springapp.logic.domain.Transaction;
 import es.unileon.aplicacionesweb.springapp.logic.handler.Handler;
 
+
+/**
+ *
+ * @author roobre
+ * @param <T>
+ */
 public class History<T extends Transaction> {
 
-    private final Collection<T> transactions;
+//	Original code
+//  private final Collection<T> transactions;
+	private Collection<T> transactions;
 
-    /**
+    public Collection<T> getTransactions() {
+		return transactions;
+	}
+
+	public void setTransactions(Collection<T> transactions) {
+		this.transactions = transactions;
+	}
+
+	/**
      *
      */
     public History() {

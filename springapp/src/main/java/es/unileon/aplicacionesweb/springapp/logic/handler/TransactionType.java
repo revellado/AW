@@ -1,5 +1,9 @@
 package es.unileon.aplicacionesweb.springapp.logic.handler;
 
+/**
+ *
+ * @author roobre
+ */
 public enum TransactionType {
 
     /**

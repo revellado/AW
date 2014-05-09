@@ -1,21 +1,34 @@
 package es.unileon.aplicacionesweb.springapp.logic.account;
 
+/**
+*
+* @author runix
+*/
 public class DetailedInformation {
 
-   private StringBuffer info;
+//	 Original code
+//   private final StringBuffer info;
+//   private boolean nonEditable;
+	 private StringBuffer info;
+     public StringBuffer getInfo() {
+		return info;
+	}
 
+	public void setInfo(StringBuffer info) {
+		this.info = info;
+	}
 
-   private boolean nonEditable;
-
-   public boolean isNonEditable() {
-	   return nonEditable;
-   }
+	public boolean isNonEditable() {
+		return nonEditable;
+	}
 
 	public void setNonEditable(boolean nonEditable) {
 		this.nonEditable = nonEditable;
 	}
 
-/**
+	private boolean nonEditable;
+     
+   /**
     *
     * @param information
     */
@@ -67,12 +80,4 @@ public class DetailedInformation {
    public String toString() {
        return this.info.toString();
    }
-   
-   public StringBuffer getInfo() {
-	   return info;
-	}
-	
-	public void setInfo(StringBuffer info) {
-		this.info = info;
-	}
 }

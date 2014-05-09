@@ -1,15 +1,39 @@
 package es.unileon.aplicacionesweb.springapp.logic.handler;
 
-
+/**
+*
+* @author roobre
+*/
 public class TransactionHandler implements Handler {
 
-    private long id;
-	private String timestamp;
+//	  Original code
+//    private final long id;
+//    private final String timestamp;
 
-    
-    public TransactionHandler() {    	
+	  private long id;
+	  private String timestamp;
+	  
+    public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(String timestamp) {
+		this.timestamp = timestamp;
+	}
+
+    public TransactionHandler() {
+        
     }
-    /**
+    
+	/**
      *
      * @param id
      * @param timestamp
@@ -32,16 +56,4 @@ public class TransactionHandler implements Handler {
         return this.toString().compareTo(another.toString());
     }
 
-    public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
-	public String getTimestamp() {
-		return timestamp;
-	}
-	public void setTimestamp(String timestamp) {
-		this.timestamp = timestamp;
-	}
 }

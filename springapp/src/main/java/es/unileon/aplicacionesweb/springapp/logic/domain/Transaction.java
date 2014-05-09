@@ -6,25 +6,61 @@ import es.unileon.aplicacionesweb.springapp.logic.account.DetailedInformation;
 import es.unileon.aplicacionesweb.springapp.logic.handler.Handler;
 import es.unileon.aplicacionesweb.springapp.logic.handler.TransactionHandlerProvider;
 import es.unileon.aplicacionesweb.springapp.logic.handler.TransactionType;
-
 /**
  *
  * @author roobre
  */
 public abstract class Transaction {
 
-    private Handler id;
-	private double amount;
-    private Date date;
-    private Date effectiveDate;
-    private String subject;
-    private Enum<TransactionType> type;
-    private DetailedInformation extraInformation;
+//	  Original code
+//    private final Handler id;
+//    private final double amount;
+//    private final Date date;
+//    private Date effectiveDate;
+//    private final String subject;
+//    private final Enum<TransactionType> type;
+//    private DetailedInformation extraInformation;
+	 
+	  private Handler id;
+      private double amount;
+      private Date date;
+      private Date effectiveDate;
+      private String subject;
+      private Enum<TransactionType> type;
+      private DetailedInformation extraInformation;
 
-    public Transaction(){
-    	
+    public DetailedInformation getExtraInformation() {
+		return extraInformation;
+	}
+
+	public void setExtraInformation(DetailedInformation extraInformation) {
+		this.extraInformation = extraInformation;
+	}
+
+	public void setId(Handler id) {
+		this.id = id;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+
+	public void setType(Enum<TransactionType> type) {
+		this.type = type;
+	}
+
+    public Transaction() {
+       
     }
-    /**
+	/**
      *
      * @param amount
      * @param date
@@ -102,28 +138,6 @@ public abstract class Transaction {
     public void setEffectiveDate(Date effectiveDate) {
         this.effectiveDate = effectiveDate;
     }
-    public DetailedInformation getExtraInformation() {
-		return extraInformation;
-	}
-	public void setExtraInformation(DetailedInformation extraInformation) {
-		this.extraInformation = extraInformation;
-	}
-	public void setId(Handler id) {
-		this.id = id;
-	}
-	public void setAmount(double amount) {
-		this.amount = amount;
-	}
-	public void setDate(Date date) {
-		this.date = date;
-	}
-	public void setSubject(String subject) {
-		this.subject = subject;
-	}
-	public void setType(Enum<TransactionType> type) {
-		this.type = type;
-	}
-
 
     /**
      *

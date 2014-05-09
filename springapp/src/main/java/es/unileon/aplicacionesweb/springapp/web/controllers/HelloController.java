@@ -1,7 +1,6 @@
 package es.unileon.aplicacionesweb.springapp.web.controllers;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,9 +37,7 @@ public class HelloController {
     	Map<String, Object> myModel = new HashMap<String, Object>();
     	myModel.put("transactions", transactions);
     	
-    	String now = (new Date()).toString();
-    	myModel.put("now", now);
-        logger.info("Returning hello view with " + now);
+        logger.info("Returning hello view");
 
         return new ModelAndView("hello",myModel);
     }

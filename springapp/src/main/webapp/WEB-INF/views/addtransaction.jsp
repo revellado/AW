@@ -50,6 +50,23 @@
           <form:errors path="extraInformation" cssClass="error"/>
         </td>
     </tr>
+    <tr>
+      <td align="right" width="20%">Tipo de transacción</td>
+        <td width="20%">
+         	<form:select path="transactionType" id="transactionType">
+	        	<form:option value="">Seleccione un tipo de transacciónr</form:option>
+	       	 	<form:option value="CHARGE">Cargo</form:option>
+	        	<form:option value="PAYMENT">Pago</form:option>
+	        	<form:option value="PAYROLL">Nómina</form:option>
+	        	<form:option value="SALARY">Salario</form:option>
+	        	<form:option value="IN">Entradas</form:option>
+	        	<form:option value="OUT">Salidas</form:option>
+   			</form:select>
+        </td>
+        <td width="60%">
+          <form:errors path="transactionType" cssClass="error"/>
+        </td>
+    </tr>
     
   </table>
   <br>

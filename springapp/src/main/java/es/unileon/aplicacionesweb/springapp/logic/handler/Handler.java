@@ -1,5 +1,9 @@
 package es.unileon.aplicacionesweb.springapp.logic.handler;
 
+/**
+ * Handler pattern.
+ * @author runix
+ */
 public interface Handler {
 
    /**

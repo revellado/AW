@@ -36,7 +36,6 @@ public class AddTransactionController {
     public String onSubmit(@Valid NewTransaction newTransaction, BindingResult result)
     {
         if (result.hasErrors()) {
-        	System.out.println("Han habido errores");
         	logger.info("Error en algun campo.");
             return "addtransaction";
         }

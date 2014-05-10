@@ -103,5 +103,9 @@
        <bean id="handler2" class="es.unileon.aplicacionesweb.springapp.logic.handler.TransactionHandler">
          <property name="id" value="5678"/>
        </bean>
+       
+       <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+         <property name="basename" value="messages"/>
+       </bean>
 
 </beans>

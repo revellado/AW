@@ -6,16 +6,11 @@ import java.util.List;
 import java.util.Map;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.junit4.*;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.web.servlet.ModelAndView;
 
 import es.unileon.aplicacionesweb.springapp.logic.domain.Transaction;
 import es.unileon.aplicacionesweb.springapp.web.controllers.HelloController;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:/test-context.xml")
 public class HelloControllerTests {
 
     @Test

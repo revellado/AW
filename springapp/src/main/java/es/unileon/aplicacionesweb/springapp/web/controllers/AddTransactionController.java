@@ -40,7 +40,7 @@ public class AddTransactionController {
             return "addtransaction";
         }
         
-        transactionsService.addTransaction(newTransaction.getAmount(), newTransaction.getDate(), newTransaction.getEffectiveDate(), newTransaction.getSubject(), newTransaction.getExtraInformation(), newTransaction.getTransactionType());
+        transactionsService.addTransaction(newTransaction.getAmount(), newTransaction.getDate(), newTransaction.getEffectiveDate(), newTransaction.getSubject(), newTransaction.getExtraInformation());
         
         return "redirect:/hello.htm";
         

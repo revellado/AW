@@ -27,8 +27,7 @@ public interface TransactionsService {
 	 * @param effectiveDate Effective date of the transaction.
 	 * @param subject Subject of the transaction.
 	 * @param extraInformation Additional information of the transaction.
-	 * @param transactionType Type of transaction.
 	 * @return True if the transaction was successfully added, false otherwise.
 	 */
-	public boolean addTransaction(double amount ,Date date, Date effectiveDate, String subject, String extraInformation,String transactionType);
+	public boolean addTransaction(double amount ,Date date, Date effectiveDate, String subject, String extraInformation);
 }

@@ -58,7 +58,6 @@
 		 	 </bean>
 	 	 </property>
          <property name="subject" value="Cargo en la cuenta."> </property>
-         <property name="type" value="#{T(es.unileon.aplicacionesweb.springapp.logic.handler.TransactionType).CHARGE}"></property>
          <property name="extraInformation">
          	<ref bean="detailedTransactionInformation1"/>
          </property>
@@ -89,7 +88,6 @@
 		 	 </bean>
 	 	 </property>
          <property name="subject" value="Cargo en la cuenta."> </property>
-         <property name="type" value="#{T(es.unileon.aplicacionesweb.springapp.logic.handler.TransactionType).PAYMENT}"></property>
          <property name="extraInformation">
          	<ref bean="detailedTransactionInformation2"/>
          </property>

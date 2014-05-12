@@ -16,30 +16,20 @@ public class NewTransaction {
     protected final Log logger = LogFactory.getLog(getClass());
     
     @Min(value = 0, message = "No puede haber transacciones negativas")
-    @Max(value = 5000, message = "El valor máximo para una transacción es de 5000")
-    @NotNull(message = "Debe introducir una cantidad válida.")
+    @Max(value = 5000, message = "El valor mï¿½ximo para una transacciï¿½n es de 5000")
+    @NotNull(message = "Debe introducir una cantidad vï¿½lida.")
     private double amount;
     @NotNull(message = "Debe introducir una fecha (dd/mm/aaaa).")
 	private Date date;
     @NotNull(message = "Debe introducir una fecha (dd/mm/aaaa).")
     private Date effectiveDate;
-    @NotBlank(message = "Debe introducir el concepto de la transacción.")
+    @NotBlank(message = "Debe introducir el concepto de la transacciï¿½n.")
     private String subject;
-    @NotBlank(message = "Debe introducir una descripción.")
+    @NotBlank(message = "Debe introducir una descripciï¿½n.")
     private String extraInformation;
-	@NotBlank(message = "Debe elegir una tipo de transacción.")
-	@javax.validation.constraints.Pattern(regexp = "CHARGE|PAYMENT|PAYROLL|SALARY|IN|OUT|")
-    private String transactionType;
-    
 
-    public String getTransactionType() {
-		return transactionType;
-	}
     public String getExtraInformation() {
 		return extraInformation;
-	}
-	public void setTransactionType(String transactionType) {
-		this.transactionType = transactionType;
 	}
 	public void setExtraInformation(String extraInformation) {
 		this.extraInformation = extraInformation;

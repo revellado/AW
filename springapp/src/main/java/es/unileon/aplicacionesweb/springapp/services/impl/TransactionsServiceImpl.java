@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import es.unileon.aplicacionesweb.springapp.logic.account.DetailedInformation;
 import es.unileon.aplicacionesweb.springapp.logic.domain.GenericTransaction;
 import es.unileon.aplicacionesweb.springapp.logic.domain.Transaction;
-import es.unileon.aplicacionesweb.springapp.logic.handler.TransactionType;
 import es.unileon.aplicacionesweb.springapp.services.TransactionsManager;
 import es.unileon.aplicacionesweb.springapp.services.TransactionsService;
 
@@ -39,19 +38,11 @@ public class TransactionsServiceImpl implements TransactionsService {
 	 * @see es.unileon.aplicacionesweb.springapp.services.TransactionsService#addTransaction(double, java.util.Date, java.util.Date, java.lang.String, java.lang.String, java.lang.String)
 	 */
 	public boolean addTransaction(double amount, Date date, Date effectiveDate,
-			String subject, String extraInformation,String transactionType) {
-
-		TransactionType[] transactionTypes = TransactionType.values();
-		
-		int i = 0;
-		
-		while(transactionTypes[i].toString().compareTo(transactionType) != 0){
-			i++;
-		}
+			String subject, String extraInformation) {
 		
 		DetailedInformation detailedInformation = new DetailedInformation(extraInformation);
 		
-		Transaction transaction = new GenericTransaction(amount,date,subject,transactionTypes[i],detailedInformation);
+		Transaction transaction = new GenericTransaction(amount,date,subject,detailedInformation);
 		transaction.setEffectiveDate(effectiveDate);
 		
 		return transactionManager.addTransaction(transaction);

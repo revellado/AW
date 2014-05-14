@@ -24,6 +24,9 @@ public class TransactionsServiceImpl implements TransactionsService {
 	
 	protected final Log logger = LogFactory.getLog(getClass());
 	
+	/**
+	 * The transaction manager.
+	 */
 	@Autowired
     private TransactionsManager transactionManager;
 
@@ -48,10 +51,18 @@ public class TransactionsServiceImpl implements TransactionsService {
 		return transactionManager.addTransaction(transaction);
 	}
 	
+	/**
+	 * 
+	 * @return the transactions manager.
+	 */
 	public TransactionsManager getTransactionManager() {
 		return transactionManager;
 	}
 	
+	/**
+	 * 
+	 * @param transactionManager
+	 */
 	public void setTransactionManager(TransactionsManager transactionManager) {
 		this.transactionManager = transactionManager;
 	}

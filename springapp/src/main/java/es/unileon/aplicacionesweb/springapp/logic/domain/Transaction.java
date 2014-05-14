@@ -5,150 +5,203 @@ import java.util.Date;
 import es.unileon.aplicacionesweb.springapp.logic.account.DetailedInformation;
 import es.unileon.aplicacionesweb.springapp.logic.handler.Handler;
 import es.unileon.aplicacionesweb.springapp.logic.handler.TransactionHandlerProvider;
+
 /**
- *
- * @author roobre
+ * Abstract representation of a transaction.
  */
 public abstract class Transaction {
 
-//	Original code
-//    private final Handler id;
-//    private final double amount;
-//    private final Date date;
-//    private Date effectiveDate;
-//    private final String subject;
-//    private DetailedInformation extraInformation;
-    
-    private Handler id;
-    private double amount;
- 	private Date date;
-    private Date effectiveDate;
-    private String subject;
-    private DetailedInformation extraInformation;
+	// Original code
+	// private final Handler id;
+	// private final double amount;
+	// private final Date date;
+	// private Date effectiveDate;
+	// private final String subject;
+	// private DetailedInformation extraInformation;
 
-    /**
-	*
-	* @param amount
-	* @param date
-	* @param subject
-	*/
-    public Transaction(double amount, Date date, String subject) {
-        this(amount, date, subject, new DetailedInformation(""));
-    }
-    
-    public Transaction(){
-    	
-    }
+	/**
+	 * The identification of a transaction.
+	 */
+	private Handler id;
+	
+	/**
+	 * The amount of a transaction.
+	 */
+	private double amount;
+	
+	/**
+	 * The date of a transaction.
+	 */
+	private Date date;
+	
+	/**
+	 * The effective date of a transaction.
+	 */
+	private Date effectiveDate;
+	
+	/**
+	 * The subject of a transaction.
+	 */
+	private String subject;
+	
+	/**
+	 * Extra details of a transaction.
+	 */
+	private DetailedInformation extraInformation;
 
-    /**
-	*
-	* @param amount
-	* @param date
-	* @param subject
-	* @param info
-	*/
-    public Transaction(double amount, Date date, String subject, DetailedInformation info) {
-        this.id = TransactionHandlerProvider.getTransactionHandler();
-        StringBuilder err = new StringBuilder();
-        if (subject == null) {
-            err.append("The subject cannot be null \n");
-        } else {
-            if (subject.length() == 0) {
-                err.append("Transaction length cannot be 0 \n");
-            }
-        }
+	/**
+	 * Transaction constructor without extra information.
+	 * @param amount
+	 * @param date
+	 * @param subject
+	 */
+	public Transaction(double amount, Date date, String subject) {
+		this(amount, date, subject, new DetailedInformation(""));
+	}
 
-        if (id == null) {
-            err.append(("The id cannot be null \n"));
-        } else {
-            if (id.toString().length() == 0) {
-                err.append(("The id size cannot be 0 \n"));
-            }
-        }
+	/**
+	 * Empty transaction constructor.
+	 */
+	public Transaction() {
 
-        if (date == null) {
-            err.append("The date cannot be null \n");
-        }
-        this.amount = amount;
-        this.date = date;
-        this.subject = subject;
-        this.extraInformation = info;
-        this.extraInformation.doFinal();
-    }
+	}
 
-    /**
-	* @return the id
-	*/
-    public Handler getId() {
-        return id;
-    }
+	/**
+	 * Transaction constructor with extra information.
+	 * @param amount
+	 * @param date
+	 * @param subject
+	 * @param info
+	 */
+	public Transaction(double amount, Date date, String subject,
+			DetailedInformation info) {
+		this.id = TransactionHandlerProvider.getTransactionHandler();
+		StringBuilder err = new StringBuilder();
+		if (subject == null) {
+			err.append("The subject cannot be null \n");
+		} else {
+			if (subject.length() == 0) {
+				err.append("Transaction length cannot be 0 \n");
+			}
+		}
 
-    /**
-	* @return the amount
-	*/
-    public double getAmount() {
-        return amount;
-    }
+		if (id == null) {
+			err.append(("The id cannot be null \n"));
+		} else {
+			if (id.toString().length() == 0) {
+				err.append(("The id size cannot be 0 \n"));
+			}
+		}
 
-    /**
-	* @return the date
-	*/
-    public Date getDate() {
-        return date;
-    }
+		if (date == null) {
+			err.append("The date cannot be null \n");
+		}
+		this.amount = amount;
+		this.date = date;
+		this.subject = subject;
+		this.extraInformation = info;
+		this.extraInformation.doFinal();
+	}
 
-    /**
-	* @return the effectiveDate
-	*/
-    public Date getEffectiveDate() {
-        return effectiveDate;
-    }
+	/**
+	 * @return the id
+	 */
+	public Handler getId() {
+		return id;
+	}
 
-    /**
-	* @return the subject
-	*/
-    public String getSubject() {
-        return subject;
-    }
+	/**
+	 * @return the amount
+	 */
+	public double getAmount() {
+		return amount;
+	}
 
-    /**
-	*
-	* @param effectiveDate
-	*/
-    public void setEffectiveDate(Date effectiveDate) {
-        this.effectiveDate = effectiveDate;
-    }
+	/**
+	 * @return the date
+	 */
+	public Date getDate() {
+		return date;
+	}
 
-    public DetailedInformation getExtraInformation() {
- 		return extraInformation;
- 	}
+	/**
+	 * @return the effectiveDate
+	 */
+	public Date getEffectiveDate() {
+		return effectiveDate;
+	}
 
- 	public void setExtraInformation(DetailedInformation extraInformation) {
- 		this.extraInformation = extraInformation;
- 	}
+	/**
+	 * @return the subject
+	 */
+	public String getSubject() {
+		return subject;
+	}
 
- 	public void setId(Handler id) {
- 		this.id = id;
- 	}
+	/**
+	 * 
+	 * @param effectiveDate
+	 */
+	public void setEffectiveDate(Date effectiveDate) {
+		this.effectiveDate = effectiveDate;
+	}
 
- 	public void setAmount(double amount) {
- 		this.amount = amount;
- 	}
+	/**
+	 * 
+	 * @return the extra information.
+	 */
+	public DetailedInformation getExtraInformation() {
+		return extraInformation;
+	}
 
- 	public void setDate(Date date) {
- 		this.date = date;
- 	}
+	/**
+	 * 
+	 * @param extraInformation
+	 */
+	public void setExtraInformation(DetailedInformation extraInformation) {
+		this.extraInformation = extraInformation;
+	}
 
- 	public void setSubject(String subject) {
- 		this.subject = subject;
- 	}
- 	
-    /**
-	*
-	* @return
-	*/
-    @Override
-    public String toString() {
-        return "Transaction " + "id=" + id + ", amount=" + amount + ", date=" + date + ", effectiveDate=" + effectiveDate + ", subject=" + subject;
-    }
+	/**
+	 * 
+	 * @param id
+	 */
+	public void setId(Handler id) {
+		this.id = id;
+	}
+
+	/**
+	 * 
+	 * @param amount
+	 */
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
+	/**
+	 * 
+	 * @param date
+	 */
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	/**
+	 * 
+	 * @param subject
+	 */
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+
+	/**
+	 * 
+	 * @return The string representation of a transaction.
+	 */
+	@Override
+	public String toString() {
+		return "Transaction " + "id=" + id + ", amount=" + amount + ", date="
+				+ date + ", effectiveDate=" + effectiveDate + ", subject="
+				+ subject;
+	}
 }

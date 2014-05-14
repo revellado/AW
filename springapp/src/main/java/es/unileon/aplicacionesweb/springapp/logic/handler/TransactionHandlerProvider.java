@@ -4,18 +4,28 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
-*
-* @author roobre
+* The handler provider.
 */
 public final class TransactionHandlerProvider {
 
+	/**
+	 * Formatter for dates.
+	 */
     private static final SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
+    
+    /**
+     * Last time stamp.
+     */
     private static String lastTimestamp = "";
+    
+    /**
+     * Contains the current id.
+     */
     private static long currentId = 0;
     
     /**
      *
-     * @return
+     * @return a new transaction Handler.
      */
     public static synchronized Handler getTransactionHandler() {
         String timestamp = format.format(new Date());
@@ -27,6 +37,9 @@ public final class TransactionHandlerProvider {
         return new TransactionHandler(++TransactionHandlerProvider.currentId, TransactionHandlerProvider.lastTimestamp);
     }
 
+    /**
+     * Empty constructor.
+     */
     private TransactionHandlerProvider() {
     }
 }

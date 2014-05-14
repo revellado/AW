@@ -21,7 +21,7 @@ import es.unileon.aplicacionesweb.springapp.logic.domain.Transaction;
 import es.unileon.aplicacionesweb.springapp.services.TransactionsService;
 
 @Controller
-public class HelloController {
+public class TransactionsController {
 
     protected final Log logger = LogFactory.getLog(getClass());
     

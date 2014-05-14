@@ -14,6 +14,9 @@ public class SimpleTransactionManager implements TransactionsManager {
 
 	private static final long serialVersionUID = 1L;
 	 
+	/**
+	 * The transactions list.
+	 */
 	private List<Transaction> transactions;
 	
 	/* (non-Javadoc)

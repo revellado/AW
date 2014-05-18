@@ -20,14 +20,27 @@ import org.springframework.web.servlet.ModelAndView;
 import es.unileon.aplicacionesweb.springapp.logic.domain.Transaction;
 import es.unileon.aplicacionesweb.springapp.services.TransactionsService;
 
+/**
+ * Controller for the index view.
+ */
 @Controller
 public class TransactionsController {
 
+	/**
+	 * Logger
+	 */
     protected final Log logger = LogFactory.getLog(getClass());
     
+    /**
+     * The service for manage the transactions.
+     */
     @Autowired
     private TransactionsService transactionsService;
 
+
+    /**
+     * Mapping for the index view.
+     */
 	@RequestMapping(value="/hello.htm", method = RequestMethod.GET)
     public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -42,6 +55,10 @@ public class TransactionsController {
         return new ModelAndView("hello",myModel);
     }
 	
+	/**
+	 * 
+	 * @param transactionsService
+	 */
     public void setTransactionsService(TransactionsService transactionsService) {
 		this.transactionsService = transactionsService;
 	}

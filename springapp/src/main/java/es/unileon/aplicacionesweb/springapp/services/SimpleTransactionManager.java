@@ -35,6 +35,10 @@ public class SimpleTransactionManager implements TransactionsManager {
 		return this.transactions;
 	}
 	
+	/**
+	 * Sets the transactions list.
+	 * @param transactions list.
+	 */
 	public void setTransactions(List<Transaction> transactions) {
 		
 		this.transactions = transactions;

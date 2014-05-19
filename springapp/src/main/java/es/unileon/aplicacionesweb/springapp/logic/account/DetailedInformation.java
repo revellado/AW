@@ -54,7 +54,7 @@ public class DetailedInformation {
 	 * @param information
 	 *            we want to add.
 	 */
-	public void appendInformaton(StringBuffer information) {
+	public void appendInformaton(StringBuilder information) {
 		this.appendInformation(information.toString());
 	}
 

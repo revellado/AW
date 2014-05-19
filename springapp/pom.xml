@@ -100,13 +100,6 @@
   </dependencies>
   <build>
     <finalName>springapp</finalName>
-    <plugins>
-    	<plugin>
-    		<groupId>org.codehaus.mojo</groupId>
-    		<artifactId>sonar-maven-plugin</artifactId>
-    		<version>1.0</version>
-    	</plugin>
-    </plugins>
   </build>
   <properties>
   	<org.springframework.version>3.2.0.RELEASE</org.springframework.version>

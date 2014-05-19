@@ -11,14 +11,6 @@ import es.unileon.aplicacionesweb.springapp.logic.handler.TransactionHandlerProv
  */
 public abstract class Transaction {
 
-	// Original code
-	// private final Handler id;
-	// private final double amount;
-	// private final Date date;
-	// private Date effectiveDate;
-	// private final String subject;
-	// private DetailedInformation extraInformation;
-
 	/**
 	 * The identification of a transaction.
 	 */
@@ -86,10 +78,10 @@ public abstract class Transaction {
 		}
 
 		if (id == null) {
-			err.append(("The id cannot be null \n"));
+			err.append("The id cannot be null \n");
 		} else {
 			if (id.toString().length() == 0) {
-				err.append(("The id size cannot be 0 \n"));
+				err.append("The id size cannot be 0 \n");
 			}
 		}
 

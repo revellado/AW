@@ -25,8 +25,8 @@ public class NewTransaction {
      * The transaction amount.
      */
     @Min(value = 0, message = "No puede haber transacciones negativas")
-    @Max(value = 5000, message = "El valor mï¿½ximo para una transacciï¿½n es de 5000")
-    @NotNull(message = "Debe introducir una cantidad vï¿½lida.")
+    @Max(value = 5000, message = "El valor máximo para una transacción es de 5000")
+    @NotNull(message = "Debe introducir una cantidad válida.")
     private double amount;
     
     /**
@@ -44,13 +44,13 @@ public class NewTransaction {
     /**
      * The transaction subject.
      */
-    @NotBlank(message = "Debe introducir el concepto de la transacciï¿½n.")
+    @NotBlank(message = "Debe introducir el concepto de la transacción.")
     private String subject;
     
     /**
      * The transaction extra information.
      */
-    @NotBlank(message = "Debe introducir una descripciï¿½n.")
+    @NotBlank(message = "Debe introducir una descripción.")
     private String extraInformation;
 
     /**

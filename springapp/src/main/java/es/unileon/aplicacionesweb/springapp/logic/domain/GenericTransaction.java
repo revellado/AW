@@ -16,7 +16,7 @@ public class GenericTransaction extends Transaction {
 	 */
 	public GenericTransaction() {
 		super();
-	};
+	}
 
 	/**
 	 * Create a new generic transaction

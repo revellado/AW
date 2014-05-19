@@ -26,10 +26,8 @@ import es.unileon.aplicacionesweb.springapp.services.TransactionsService;
 @Controller
 public class TransactionsController {
 
-	/**
-	 * Logger
-	 */
-    protected final Log logger = LogFactory.getLog(getClass());
+	/** Logger for this class and subclasses */
+    protected final Log log = LogFactory.getLog(getClass());
     
     /**
      * The service for manage the transactions.
@@ -42,15 +40,14 @@ public class TransactionsController {
      * Mapping for the index view.
      */
 	@RequestMapping(value="/hello.htm", method = RequestMethod.GET)
-    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     	List<Transaction> transactions = transactionsService.getTransactions();
     	
     	Map<String, Object> myModel = new HashMap<String, Object>();
     	myModel.put("transactions", transactions);
     	
-        logger.info("Returning hello view");
+    	log.info("Returning hello view");
 
         return new ModelAndView("hello",myModel);
     }

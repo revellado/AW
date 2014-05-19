@@ -5,10 +5,6 @@ package es.unileon.aplicacionesweb.springapp.logic.handler;
  */
 public class TransactionHandler implements Handler {
 
-	// Original code
-	// private final long id;
-	// private final String timestamp;
-
 	/**
 	 * The identification of a Handler.
 	 */

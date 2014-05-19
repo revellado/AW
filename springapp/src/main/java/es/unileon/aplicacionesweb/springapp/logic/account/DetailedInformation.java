@@ -6,13 +6,10 @@ package es.unileon.aplicacionesweb.springapp.logic.account;
  */
 public class DetailedInformation {
 
-	// Original code
-	// private final StringBuffer info;
-	// private boolean nonEditable;
 	/**
 	 * The extra information.
 	 */
-	private StringBuffer info;
+	private StringBuilder info;
 
 	/**
 	 * Sets if the information is editable or not.
@@ -24,7 +21,7 @@ public class DetailedInformation {
 	 * @param information
 	 */
 	public DetailedInformation(String information) {
-		this.info = new StringBuffer(information);
+		this.info = new StringBuilder(information);
 		this.nonEditable = false;
 	}
 
@@ -82,7 +79,7 @@ public class DetailedInformation {
 	 * 
 	 * @return the extra information.
 	 */
-	public StringBuffer getInfo() {
+	public StringBuilder getInfo() {
 		return info;
 	}
 
@@ -91,7 +88,7 @@ public class DetailedInformation {
 	 * 
 	 * @param info
 	 */
-	public void setInfo(StringBuffer info) {
+	public void setInfo(StringBuilder info) {
 		this.info = info;
 	}
 

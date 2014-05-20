@@ -10,7 +10,7 @@ import es.unileon.aplicacionesweb.springapp.logic.domain.Transaction;
  * @author Miguel Revellado Marcos
  *
  */
-public class SimpleTransactionManager implements TransactionsManager {
+public class SimpleTransactionsManager implements TransactionsManager {
 
 	private static final long serialVersionUID = 1L;
 	 

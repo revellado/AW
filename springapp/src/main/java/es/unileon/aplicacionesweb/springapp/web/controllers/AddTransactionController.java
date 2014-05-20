@@ -22,6 +22,9 @@ import org.apache.commons.logging.LogFactory;
 import es.unileon.aplicacionesweb.springapp.services.NewTransaction;
 import es.unileon.aplicacionesweb.springapp.services.TransactionsService;
 
+/**
+ * Controller for the add transaction view.
+ */
 @Controller
 @RequestMapping(value="/addtransaction.htm")
 public class AddTransactionController {

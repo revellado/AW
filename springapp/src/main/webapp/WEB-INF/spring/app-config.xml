@@ -33,7 +33,7 @@
 			<constructor-arg value="yyyy-MM-dd" />
 		</bean>
 	
-		<bean id="transactionManager" class="es.unileon.aplicacionesweb.springapp.services.SimpleTransactionManager">
+		<bean id="transactionManager" class="es.unileon.aplicacionesweb.springapp.services.SimpleTransactionsManager">
          <property name="transactions">
             <list>
                 <ref bean="transaction1"/>

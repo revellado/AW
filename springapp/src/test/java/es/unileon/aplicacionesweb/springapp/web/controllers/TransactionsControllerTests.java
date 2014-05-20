@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import es.unileon.aplicacionesweb.springapp.logic.account.DetailedInformation;
 import es.unileon.aplicacionesweb.springapp.logic.domain.GenericTransaction;
 import es.unileon.aplicacionesweb.springapp.logic.domain.Transaction;
-import es.unileon.aplicacionesweb.springapp.services.SimpleTransactionManager;
+import es.unileon.aplicacionesweb.springapp.services.SimpleTransactionsManager;
 import es.unileon.aplicacionesweb.springapp.services.impl.TransactionsServiceImpl;
 import es.unileon.aplicacionesweb.springapp.web.controllers.TransactionsController;
 
@@ -26,7 +26,7 @@ public class TransactionsControllerTests {
         
         TransactionsServiceImpl transactionsService = new TransactionsServiceImpl();
         
-        SimpleTransactionManager transactionManager = new SimpleTransactionManager();
+        SimpleTransactionsManager transactionManager = new SimpleTransactionsManager();
         
         List<Transaction> transactions = new ArrayList<Transaction>();
         

@@ -1,0 +1,3 @@
+INSERT INTO transactions (amount, transactiondate, effectivedate, subject, extraInformation) values(10.5, '2014-05-05', '2014-05-06', 'Concepto de la primera transaccion', 'Informacion extra de la primera transaccion');
+INSERT INTO transactions (amount, transactiondate, effectivedate, subject, extraInformation) values(50.2, '2014-06-05', '2014-06-07','Concepto de la segunda transaccion', 'Informacion extra de la segunda transaccion');
+INSERT INTO transactions (amount, transactiondate, effectivedate, subject, extraInformation) values(110.6, '2014-07-05', '2014-07-08','Concepto de la tercera transaccion', 'Informacion extra de la tercera transaccion');

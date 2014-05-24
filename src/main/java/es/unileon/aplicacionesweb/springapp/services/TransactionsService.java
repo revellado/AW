@@ -3,7 +3,7 @@ package es.unileon.aplicacionesweb.springapp.services;
 import java.util.Date;
 import java.util.List;
 
-import es.unileon.aplicacionesweb.springapp.logic.domain.Transaction;
+import es.unileon.aplicacionesweb.springapp.domain.Transaction;
 
 /**
  * Service for management transactions.
@@ -27,7 +27,6 @@ public interface TransactionsService {
 	 * @param effectiveDate Effective date of the transaction.
 	 * @param subject Subject of the transaction.
 	 * @param extraInformation Additional information of the transaction.
-	 * @return True if the transaction was successfully added, false otherwise.
 	 */
-	public boolean addTransaction(double amount ,Date date, Date effectiveDate, String subject, String extraInformation);
+	public void addTransaction(double amount ,Date date, Date effectiveDate, String subject, String extraInformation);
 }

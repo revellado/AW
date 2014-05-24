@@ -12,7 +12,7 @@ import es.unileon.aplicacionesweb.springapp.logic.domain.Transaction;
  *
  */
 public interface TransactionsManager extends Serializable{
-	
+
 	/**
 	 * Add a transaction to the transaction list.
 	 * 

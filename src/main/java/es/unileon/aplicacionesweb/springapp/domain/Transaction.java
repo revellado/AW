@@ -1,12 +1,14 @@
-package es.unileon.aplicacionesweb.springapp.services;
+package es.unileon.aplicacionesweb.springapp.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.NotBlank;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * 
@@ -14,38 +16,45 @@ import org.hibernate.validator.constraints.NotBlank;
  * 
  * @author Miguel Revellado Marcos
  */
-public class NewTransaction {
+@Entity
+@Table(name="transactions") 
+public class Transaction implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     
     /**
      * The transaction amount.
      */
-    @Min(value = 0, message = "No puede haber transacciones negativas")
-    @Max(value = 5000, message = "El valor máximo para una transacción es de 5000")
-    @NotNull(message = "Debe introducir una cantidad válida.")
+    @Column(name = "amount")
     private double amount;
     
     /**
      * The transaction date.
      */
-    @NotNull(message = "Debe introducir una fecha (dd/mm/aaaa).")
-	private Date date;
+    @Column(name = "transactiondate")
+	private Date transactiondate;
     
     /**
      * The transaction effective date.
      */
-    @NotNull(message = "Debe introducir una fecha (dd/mm/aaaa).")
+    @Column(name = "effectiveDate")
     private Date effectiveDate;
     
     /**
      * The transaction subject.
      */
-    @NotBlank(message = "Debe introducir el concepto de la transacción.")
+    @Column(name = "subject")
     private String subject;
     
     /**
      * The transaction extra information.
      */
-    @NotBlank(message = "Debe introducir una descripción.")
+    @Column(name = "extraInformation")
     private String extraInformation;
 
     /**
@@ -85,7 +94,7 @@ public class NewTransaction {
 	 * @return the transaction date.
 	 */
 	public Date getDate() {
-		return date;
+		return transactiondate;
 	}
 	
 	/**
@@ -93,7 +102,7 @@ public class NewTransaction {
 	 * @param date.
 	 */
 	public void setDate(Date date) {
-		this.date = date;
+		this.transactiondate = date;
 	}
 	
 	/**

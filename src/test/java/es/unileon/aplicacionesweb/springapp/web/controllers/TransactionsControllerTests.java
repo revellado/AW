@@ -10,10 +10,8 @@ import java.util.Map;
 import org.junit.Test;
 import org.springframework.web.servlet.ModelAndView;
 
-import es.unileon.aplicacionesweb.springapp.logic.account.DetailedInformation;
-import es.unileon.aplicacionesweb.springapp.logic.domain.GenericTransaction;
-import es.unileon.aplicacionesweb.springapp.logic.domain.Transaction;
-import es.unileon.aplicacionesweb.springapp.services.SimpleTransactionsManager;
+import es.unileon.aplicacionesweb.springapp.domain.Transaction;
+import es.unileon.aplicacionesweb.springapp.repository.InMemoryTransactionDao;
 import es.unileon.aplicacionesweb.springapp.services.impl.TransactionsServiceImpl;
 import es.unileon.aplicacionesweb.springapp.web.controllers.TransactionsController;
 
@@ -26,16 +24,19 @@ public class TransactionsControllerTests {
         
         TransactionsServiceImpl transactionsService = new TransactionsServiceImpl();
         
-        SimpleTransactionsManager transactionManager = new SimpleTransactionsManager();
-        
         List<Transaction> transactions = new ArrayList<Transaction>();
         
-        Transaction transaction = new GenericTransaction(2.0, new Date(), "Subject", new DetailedInformation("Extra info"));
-        transaction.setEffectiveDate(new Date());
-        
-        transactions.add(transaction);
-        transactionManager.setTransactions(transactions);
-        transactionsService.setTransactionManager(transactionManager);
+		Transaction transaction1 = new Transaction();
+		transaction1.setAmount(2.0);
+		transaction1.setDate(new Date());
+		transaction1.setEffectiveDate(new Date());
+		transaction1.setSubject("Subject 1");
+		transaction1.setExtraInformation("Extra information 1");
+		
+		transactions.add(transaction1);
+		
+		transactionsService.setTransactionDao(new InMemoryTransactionDao(transactions));
+		
         controller.setTransactionsService(transactionsService);
         
         ModelAndView modelAndView = controller.handleRequest(null, null);

@@ -7,6 +7,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
  
     <!-- holding properties for database connectivity /-->
     <context:property-placeholder location="classpath:jdbc.properties"/>
@@ -26,9 +27,9 @@
 	p:dataSource-ref="dataSource"
 	p:jpaVendorAdapter-ref="jpaAdapter">
 	<property name="loadTimeWeaver">
-          <bean class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver"/>
-        </property>                             
-        <property name="persistenceUnitName" value="springappPU"></property>
+            <bean class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver"/>
+	</property>                             
+	<property name="persistenceUnitName" value="springappPU"></property>
     </bean>
 	 
     <bean id="jpaAdapter"
@@ -43,6 +44,6 @@
 
     <!-- Scans the classpath of this application for @Components to deploy as beans -->
     <context:component-scan base-package="es.unileon.aplicacionesweb.springapp.repository" />
-    <context:component-scan base-package="es.unileon.aplicacionesweb.springapp.domain" />
-
+    <context:component-scan base-package="es.unileon.aplicacionesweb.springapp.services" />
+	
 </beans>

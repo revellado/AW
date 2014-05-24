@@ -1,109 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context.xsd
-       http://www.springframework.org/schema/mvc
-       http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+ 
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="messages"/>
+    </bean>
 
-       <!-- Scans the classpath of this application for @Components to deploy as beans -->
-       <context:component-scan base-package="es.unileon.aplicacionesweb.springapp.web.controllers" />
+    <!-- Scans the classpath of this application for @Components to deploy as beans -->
+    <context:component-scan base-package="es.unileon.aplicacionesweb.springapp.web.controllers" />
 
-       <!-- Configures the @Controller programming model -->
-       <mvc:annotation-driven/>
-       
-       <context:annotation-config/>
-       
-       <bean id="transactionService" class="es.unileon.aplicacionesweb.springapp.services.impl.TransactionsServiceImpl">
-         
-       </bean>
-       
-       <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-			<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
-			<property name="prefix" value="/WEB-INF/views/"></property>
-			<property name="suffix" value=".jsp"></property>
-		</bean>
-		
-		<bean id="dateFormat" class="java.text.SimpleDateFormat">
-			<constructor-arg value="yyyy-MM-dd" />
-		</bean>
+    <!-- Configures the @Controller programming model -->
+    <mvc:annotation-driven/>
 	
-		<bean id="transactionManager" class="es.unileon.aplicacionesweb.springapp.services.SimpleTransactionsManager">
-         <property name="transactions">
-            <list>
-                <ref bean="transaction1"/>
-                <ref bean="transaction2"/>
-            </list>
-         </property>
-       </bean>
-
-       <bean id="transaction1" class="es.unileon.aplicacionesweb.springapp.logic.domain.GenericTransaction">
-         <property name="id">
-        	 <ref bean="handler1"/>
-         </property>
-         <property name="amount" value="2.0"> </property>
-         <property name="date" >
-         	<bean factory-bean="dateFormat" factory-method="parse">
-				<constructor-arg value="2010-01-31" />
-			</bean>
-		 </property>
-         <property name="effectiveDate">
-	         <bean factory-bean="dateFormat" factory-method="parse">
-				<constructor-arg value="2010-01-31" />
-		 	 </bean>
-	 	 </property>
-         <property name="subject" value="Cargo en la cuenta."> </property>
-         <property name="extraInformation">
-         	<ref bean="detailedTransactionInformation1"/>
-         </property>
-       </bean>
-
-       <bean id="detailedTransactionInformation1" class="es.unileon.aplicacionesweb.springapp.logic.account.DetailedInformation">
-       	 <property name="info" value="Informacion extra de la transaccion 1."/>
-         <property name="nonEditable" value="true"/>
-       </bean>
-       
-       <bean id="handler1" class="es.unileon.aplicacionesweb.springapp.logic.handler.TransactionHandler">
-         <property name="id" value="1234"/>
-       </bean>
-       
-       <bean id="transaction2" class="es.unileon.aplicacionesweb.springapp.logic.domain.GenericTransaction">
-         <property name="id">
-        	 <ref bean="handler2"/>
-         </property>
-         <property name="amount" value="4.0"> </property>
-         <property name="date" >
-         	<bean factory-bean="dateFormat" factory-method="parse">
-				<constructor-arg value="2011-01-31" />
-			</bean>
-		 </property>
-         <property name="effectiveDate">
-	         <bean factory-bean="dateFormat" factory-method="parse">
-				<constructor-arg value="2011-02-31" />
-		 	 </bean>
-	 	 </property>
-         <property name="subject" value="Cargo en la cuenta."> </property>
-         <property name="extraInformation">
-         	<ref bean="detailedTransactionInformation2"/>
-         </property>
-       </bean>
-
-       <bean id="detailedTransactionInformation2" class="es.unileon.aplicacionesweb.springapp.logic.account.DetailedInformation">
-       	 <property name="info" value="Informacion extra de la transaccion 2."/>
-         <property name="nonEditable" value="true"/>
-       </bean>
-       
-       <bean id="handler2" class="es.unileon.aplicacionesweb.springapp.logic.handler.TransactionHandler">
-         <property name="id" value="5678"/>
-       </bean>
-       
-       <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-         <property name="basename" value="messages"/>
-       </bean>
-
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
+        <property name="prefix" value="/WEB-INF/views/"></property>
+        <property name="suffix" value=".jsp"></property>        
+    </bean>
+	
 </beans>

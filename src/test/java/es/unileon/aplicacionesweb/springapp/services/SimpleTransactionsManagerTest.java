@@ -12,7 +12,7 @@ import org.junit.Test;
 import es.unileon.aplicacionesweb.springapp.logic.domain.GenericTransaction;
 import es.unileon.aplicacionesweb.springapp.logic.domain.Transaction;
 
-public class SimpleTransactionsManagerTests {
+public class SimpleTransactionsManagerTest {
 
 	private SimpleTransactionsManager transactionsManager;
 	

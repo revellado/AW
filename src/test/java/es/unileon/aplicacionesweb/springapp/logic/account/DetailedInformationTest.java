@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-public class DetailedInformationTests {
+public class DetailedInformationTest {
 
 	private DetailedInformation detailedInformation;
 	

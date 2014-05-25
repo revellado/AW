@@ -13,7 +13,7 @@ import es.unileon.aplicacionesweb.springapp.domain.Transaction;
 import es.unileon.aplicacionesweb.springapp.repository.InMemoryTransactionDao;
 import es.unileon.aplicacionesweb.springapp.repository.TransactionDao;
 
-public class TransactionsServiceImplTests {
+public class TransactionsServiceImplTest {
 
 	TransactionsServiceImpl transactionsService;
 	List<Transaction> transactions;

@@ -15,7 +15,7 @@ import es.unileon.aplicacionesweb.springapp.repository.InMemoryTransactionDao;
 import es.unileon.aplicacionesweb.springapp.services.impl.TransactionsServiceImpl;
 import es.unileon.aplicacionesweb.springapp.web.controllers.TransactionsController;
 
-public class TransactionsControllerTests {
+public class TransactionsControllerTest {
 
     @Test
     public void testHandleRequestView() throws Exception{

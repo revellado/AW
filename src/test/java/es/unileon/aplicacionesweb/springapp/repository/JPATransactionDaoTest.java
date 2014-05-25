@@ -11,7 +11,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import es.unileon.aplicacionesweb.springapp.domain.Transaction;
 
-public class JPATransactionDaoTests {
+public class JPATransactionDaoTest {
 	
     private ApplicationContext context;
     private TransactionDao transactionsDao;

@@ -11,7 +11,7 @@ import es.unileon.aplicacionesweb.springapp.logic.account.DetailedInformation;
 import es.unileon.aplicacionesweb.springapp.logic.handler.Handler;
 import es.unileon.aplicacionesweb.springapp.logic.handler.TransactionHandler;
 
-public class GenericTransactionTests {
+public class GenericTransactionTest {
 
 	private Transaction transaction;
 	@Before
